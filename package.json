@@ -1,0 +1,30 @@
+{
+  "name": "ziggy-inbox",
+  "version": "0.0.0",
+  "description": "ziggy irc bot plugin for leaving messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jarofghosts/ziggy-inbox.git"
+  },
+  "keywords": [
+    "ziggy",
+    "message",
+    "inbox",
+    "pm",
+    "plugin"
+  ],
+  "author": "jesse keane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jarofghosts/ziggy-inbox/issues"
+  },
+  "homepage": "https://github.com/jarofghosts/ziggy-inbox",
+  "dependencies": {
+    "levelup": "~0.18.2",
+    "leveldown": "~0.10.2"
+  }
+}
