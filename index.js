@@ -10,6 +10,7 @@ function inbox_plugin(ziggy) {
 
   function parse_message(user, channel, message) {
     var bits = message.split(/\s+/)
+      , routes
 
     var command = bits[0]
       , to_nick = bits[1]
@@ -17,7 +18,7 @@ function inbox_plugin(ziggy) {
 
     if(command !== '!tell' && command !== '!inbox') return
 
-    var routes = {
+    routes = {
         '!tell': do_tell
       , '!inbox': do_inbox
     }
