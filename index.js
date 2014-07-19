@@ -14,7 +14,8 @@ function inbox_plugin(ziggy) {
 
     var command = bits[0]
       , to_nick = bits[1]
-      , rest = bits.slice(2).join(' ')
+
+    var rest = bits.slice(2).join(' ')
 
     if(command !== '!tell' && command !== '!inbox') return
 
@@ -26,7 +27,7 @@ function inbox_plugin(ziggy) {
     routes[command]()
 
     function do_inbox() {
-      check_inbox(user, null)
+      check_inbox(user, null, true)
     }
 
     function do_tell() {
@@ -49,12 +50,12 @@ function inbox_plugin(ziggy) {
     parse_message(user, user.nick, message)
   }
 
-  function check_inbox(user, channel) {
+  function check_inbox(user, channel, tell) {
     db.get(user.nick, show_inbox)
 
     function show_inbox(err, messages) {
       if(err) {
-        return say_nothing(user.nick)
+        return !tell ? null : say_nothing(user.nick)
       }
 
       for(var i = 0, l = messages.length; i < l; ++i) {
@@ -83,5 +84,5 @@ function timestamp() {
 }
 
 function pad(n) {
-  return ('00' + n).slice(-2)
+  return ('0' + n).slice(-2)
 }
